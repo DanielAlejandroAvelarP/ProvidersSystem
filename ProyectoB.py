@@ -89,7 +89,7 @@ listProviders = {} #This is the most important var, this dictionary have all nam
 #____________________________________________________________________________
 #Open the file "DIOT" in the window PAGOS
 base_path = Path(__file__).parent
-file_path = (base_path/"resources/Diots/FORMATO DIOT ENERO 2024.xlsx").resolve()
+file_path = (base_path/"resources/Diots/FORMATO DIOT JULIO 2024 2.xlsx").resolve()
 excelarchive = pandas.read_excel(file_path, sheet_name = 'PAGOS')
 
 #Columns 
@@ -144,33 +144,17 @@ for proveedorNombre in listProviders:
 
         # Añadimos a FoliosTodos nuestro folio sin "-" y ademas le agrgamos los campos necesarios que dependen del folio
         for folio in listFolios:
-            #listProviders[proveedorNombre]["foliosData"].append({
-            # 'folio': folio, 
-            # 'ffiscal': NULL, 
-            # 'concepto': NULL, 
-            # 'moneda': "MN", 
-            # 'tipocambio': "1", 
-            # 'importe': "0", 
-            # '0%': "0", 
-            # 'iva': NULL, 
-            # 'ivaretendio': "0", 
-            # 'total': NULL, 
-            # 'cheque': NULL,
-            #  'fecha': j['fecha'], 
-            # 'banco': "BANORTE", '
-            # totalmorado': NULL})
             folioObj = createFolioObj(folio, j['fecha'], j['cheque'])
             listProviders[proveedorNombre]["foliosData"].append(folioObj)
 
-        # listProviders[proveedorNombre]["foliosTodos"] = np.concatenate((listProviders[proveedorNombre]["foliosTodos"], listFolios))
     # Por ultimo eliminamos la lista de folios del provedor que ya no nos sirve 
     del listProviders[proveedorNombre]["folios"]
 
 # Creamos una lista de objetos, el cual contendra el nombre del archivo, la pagina en donde se encuentra la info y las columnas que necesitamos
 listaFilesInfo = [
     {
-        # Archivo 10 2023
-        "filename": "10 2023.xlsx",
+        # Archivo 4 2024
+        "filename": "04 2024.xlsx",
         "sheetName": "I",
         "columnRFC": 0,
         "columnProvedor": 1,
@@ -179,8 +163,8 @@ listaFilesInfo = [
         "columnFFiscal": 10,
         "columnConceptos": 12,
         "columnIVA": 14,
-        "columnIVARetenido": 19,
-        "IEPScolumns": [13, 15, 16, 17],
+        "columnIVARetenido": 20,
+        "IEPScolumns": [13, 15, 16, 17, 18],
         # Pagina P
         "sheetNameP": "P",
         "columnPRFC": 0,
@@ -189,28 +173,8 @@ listaFilesInfo = [
         "columnPFFiscal": 5,
     },
     {
-        # Archivo 11 2023
-        "filename": "11 2023.xlsx",
-        "sheetName": "I",
-        "columnRFC": 0,
-        "columnProvedor": 1,
-        "columnFolio": 2,
-        "columnTOTAL": 9,
-        "columnFFiscal": 10,
-        "columnConceptos": 12,
-        "columnIVA": 14,
-        "columnIVARetenido": 19,
-        "IEPScolumns": [13, 15, 16, 17],
-        # Pagina P
-        "sheetNameP": "P",
-        "columnPRFC": 0,
-        "columnPFolio": 2,
-        "columnPTOTAL": 4,
-        "columnPFFiscal": 5,
-    },
-    {
-        # Archivo 12 2023
-        "filename": "12 2023.xlsx",
+        # Archivo 5 2024
+        "filename": "05 2024.xlsx",
         "sheetName": "I",
         "columnRFC": 0,
         "columnProvedor": 1,
@@ -229,68 +193,8 @@ listaFilesInfo = [
         "columnPFFiscal": 5,
     },
     {
-        # Archivo 1 2024
-        "filename": "01 2024.xls",
-        "sheetName": "I",
-        "columnRFC": 0,
-        "columnProvedor": 1,
-        "columnFolio": 2,
-        "columnTOTAL": 9,
-        "columnFFiscal": 10,
-        "columnConceptos": 12,
-        "columnIVA": 14,
-        "columnIVARetenido": 19,
-        "IEPScolumns": [13, 15, 16, 17],
-        # Pagina P
-        "sheetNameP": "P",
-        "columnPRFC": 0,
-        "columnPFolio": 2,
-        "columnPTOTAL": 4,
-        "columnPFFiscal": 5,
-    },
-    {
-        # Archivo 2 2024
-        "filename": "02 2024.xlsx",
-        "sheetName": "I",
-        "columnRFC": 0,
-        "columnProvedor": 1,
-        "columnFolio": 2,
-        "columnTOTAL": 9,
-        "columnFFiscal": 10,
-        "columnConceptos": 12,
-        "columnIVA": 14,
-        "columnIVARetenido": 17,
-        "IEPScolumns": [13, 15],
-        # Pagina P
-        "sheetNameP": "P",
-        "columnPRFC": 0,
-        "columnPFolio": 2,
-        "columnPTOTAL": 4,
-        "columnPFFiscal": 5,
-    },
-    {
-        # Archivo 3 2024
-        "filename": "03 2024.xls",
-        "sheetName": "I",
-        "columnRFC": 0,
-        "columnProvedor": 1,
-        "columnFolio": 2,
-        "columnTOTAL": 9,
-        "columnFFiscal": 10,
-        "columnConceptos": 12,
-        "columnIVA": 14,
-        "columnIVARetenido": 18,
-        "IEPScolumns": [13, 15, 16],
-        # Pagina P
-        "sheetNameP": "P",
-        "columnPRFC": 0,
-        "columnPFolio": 2,
-        "columnPTOTAL": 4,
-        "columnPFFiscal": 5,
-    },
-    {
-        # Archivo 4 2024
-        "filename": "04 2024.xlsx",
+        # Archivo 6 2024
+        "filename": "06 2024.xlsx",
         "sheetName": "I",
         "columnRFC": 0,
         "columnProvedor": 1,
@@ -301,6 +205,86 @@ listaFilesInfo = [
         "columnIVA": 14,
         "columnIVARetenido": 20,
         "IEPScolumns": [13, 15, 16, 17, 18],
+        # Pagina P
+        "sheetNameP": "P",
+        "columnPRFC": 0,
+        "columnPFolio": 2,
+        "columnPTOTAL": 4,
+        "columnPFFiscal": 5,
+    },
+    {
+        # Archivo 7 2024
+        "filename": "07 2024.xlsx",
+        "sheetName": "I",
+        "columnRFC": 0,
+        "columnProvedor": 1,
+        "columnFolio": 2,
+        "columnTOTAL": 9,
+        "columnFFiscal": 10,
+        "columnConceptos": 12,
+        "columnIVA": 14,
+        "columnIVARetenido": 21,
+        "IEPScolumns": [13, 15, 16, 17, 18],
+        # Pagina P
+        "sheetNameP": "P",
+        "columnPRFC": 0,
+        "columnPFolio": 2,
+        "columnPTOTAL": 4,
+        "columnPFFiscal": 5,
+    },
+    {
+        # Archivo 8 2024
+        "filename": "08 2024.xlsx",
+        "sheetName": "I",
+        "columnRFC": 0,
+        "columnProvedor": 1,
+        "columnFolio": 2,
+        "columnTOTAL": 9,
+        "columnFFiscal": 10,
+        "columnConceptos": 12,
+        "columnIVA": 14,
+        "columnIVARetenido": 22,
+        "IEPScolumns": [13, 15, 16, 17, 19, 20],
+        # Pagina P
+        "sheetNameP": "P",
+        "columnPRFC": 0,
+        "columnPFolio": 2,
+        "columnPTOTAL": 4,
+        "columnPFFiscal": 5,
+    },
+    {
+        # Archivo 9 2024
+        "filename": "09 2024.xlsx",
+        "sheetName": "I",
+        "columnRFC": 0,
+        "columnProvedor": 1,
+        "columnFolio": 2,
+        "columnTOTAL": 9,
+        "columnFFiscal": 10,
+        "columnConceptos": 12,
+        "columnIVA": 14,
+        "columnIVARetenido": 22,
+        "IEPScolumns": [13, 15, 16, 17, 18, 20],
+        # Pagina P
+        "sheetNameP": "P",
+        "columnPRFC": 0,
+        "columnPFolio": 2,
+        "columnPTOTAL": 4,
+        "columnPFFiscal": 5,
+    },
+    {
+        # Archivo 10 2024
+        "filename": "10 2024.xlsx",
+        "sheetName": "I",
+        "columnRFC": 0,
+        "columnProvedor": 1,
+        "columnFolio": 2,
+        "columnTOTAL": 9,
+        "columnFFiscal": 10,
+        "columnConceptos": 12,
+        "columnIVA": 14,
+        "columnIVARetenido": 21,
+        "IEPScolumns": [13, 15, 16, 18, 19],
         # Pagina P
         "sheetNameP": "P",
         "columnPRFC": 0,
